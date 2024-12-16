@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 4099932668627753338}
   - component: {fileID: 3604838342665719750}
   - component: {fileID: -3774568181468419327}
+  - component: {fileID: 4800323138735454547}
   m_Layer: 0
   m_Name: R4
   m_TagString: Recycle
@@ -168,3 +169,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4800323138735454547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692542031060346369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6d1feaf1c801940afae12f6998a995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

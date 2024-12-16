@@ -235,12 +235,15 @@ public class PlayerAnimatorController : MonoBehaviour
         Vector3 throwDirection = playerCamera.transform.forward;
 
         // throwDirection에 위쪽 벡터 추가하여 방향을 약간 위로 향하게 함
-        float elevationFactor = 0.3f; // 위로 향하는 정도를 조절하는 변수 (필요에 따라 조정)
+        float elevationFactor = 0.3f; 
         throwDirection += Vector3.up * elevationFactor;
         throwDirection.Normalize(); // 방향을 정규화하여 크기가 1이 되도록 함
 
         // TrashPickupController에 던지기 호출
         trashPickupController.ThrowTrash(throwDirection, currentThrowForce);
+
+        // 던지기 효과음 재생
+        GameManager.Instance.PlayThrowSound();
 
         // 던지기 후 ReturnToIdle 호출
         ReturnToIdle();

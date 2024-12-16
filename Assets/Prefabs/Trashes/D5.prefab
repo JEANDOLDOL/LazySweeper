@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1329380978586078087}
   - component: {fileID: 3761396969697051389}
   - component: {fileID: -5680355513161619645}
+  - component: {fileID: -6374185632816943891}
   m_Layer: 0
   m_Name: D5
   m_TagString: Disposable
@@ -136,3 +137,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6374185632816943891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831961880768782830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6d1feaf1c801940afae12f6998a995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

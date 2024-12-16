@@ -24,19 +24,16 @@ public class TrashPickupController : MonoBehaviour
 
         if (rb != null)
         {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-            rb.useGravity = false;
+            rb.linearVelocity = Vector3.zero; // 리니어 속도 초기화
+            rb.angularVelocity = Vector3.zero; // 각속도 초기화
+            rb.isKinematic = true; // 물리 시뮬레이션 비활성화
+            rb.useGravity = false; // 중력 비활성화
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative; // 안정적인 충돌 감지 설정
         }
 
         if (trashCollider != null)
         {
-            // 물리 충돌을 막기 위해 트리거로 전환
-            trashCollider.isTrigger = true;
-
-            // 플레이어와의 충돌을 무시할 필요가 없다면, 아래는 생략 가능
-            // Physics.IgnoreCollision(trashCollider, playerCollider, true);
+            trashCollider.isTrigger = true; // 충돌을 트리거로 설정하여 손에서 물리적으로 튀어나가지 않음
         }
 
         currentTrash.transform.SetParent(trashPosition);
@@ -47,6 +44,7 @@ public class TrashPickupController : MonoBehaviour
     public void ThrowTrash(Vector3 throwDirection, float throwForce)
     {
         if (currentTrash == null) return;
+
         Collider trashCollider = currentTrash.GetComponent<Collider>();
 
         // 자식 관계 해제
@@ -54,16 +52,16 @@ public class TrashPickupController : MonoBehaviour
 
         if (trashCollider != null)
         {
-            // 던지기 전에 다시 콜라이더를 일반 콜라이더로 되돌림
-            trashCollider.isTrigger = false;
+            trashCollider.isTrigger = false; // 트리거 해제하여 충돌 활성화
         }
 
         Rigidbody rb = currentTrash.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
+            rb.isKinematic = false; // 물리 시뮬레이션 활성화
+            rb.useGravity = true; // 중력 활성화
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // 고속 충돌 처리
+            rb.AddForce(throwDirection * throwForce, ForceMode.Impulse); // 던지기 힘 적용
         }
 
         currentTrash = null;
@@ -76,19 +74,18 @@ public class TrashPickupController : MonoBehaviour
         Collider trashCollider = currentTrash.GetComponent<Collider>();
         if (trashCollider != null)
         {
-            // 버릴 때도 마찬가지로 다시 일반 콜라이더로 되돌림
-            trashCollider.isTrigger = false;
+            trashCollider.isTrigger = false; // 트리거 해제
         }
-
-        currentTrash.transform.SetParent(null);
 
         Rigidbody rb = currentTrash.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.isKinematic = false;
-            rb.useGravity = true;
+            rb.isKinematic = false; // 물리 시뮬레이션 활성화
+            rb.useGravity = true; // 중력 활성화
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // 고속 충돌 처리
         }
 
+        currentTrash.transform.SetParent(null);
         currentTrash = null;
     }
 }
