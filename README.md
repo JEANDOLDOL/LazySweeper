@@ -2,7 +2,7 @@
 3D project with Unity. A lazy sweeper tries to save time!
 
 ## Gameplay Video
-- [Watch Gameplay on YouTube](https://youtu.be/pJSlgt17JX8)
+- [Watch Gameplay on YouTube](https://youtu.be/aKjeQrQNwWQ)
 
 
 ## 📖 Introduction
